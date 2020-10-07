@@ -94,13 +94,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     <!-- EXERCISE 4
         Create a button "Remove First Task" to trigger the method "removeFirst"
         -->
-    <input
-      id="remove"
-      class="button"
-      type="button"
-      value="Remove First Task"
-      onclick="removeLast()"
-    />
+    <input id="remove" class="button" type="button" value="Remove First Task" />
 
     <ul class="to-dos" id="myTaskList">
       <li>ciao</li>
@@ -128,27 +122,26 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 - Use the document.createElement to create the new List Item
                 - Append the child to the UL
             */
-      let TaskContainer = document.querySelector('#myTaskList');
+
       const addNewTask = function () {
         let ul_ref = document.querySelector('#newTask');
         let task = ul_ref.value;
         console.log('The task is', task);
-        let newTask = document.createElement('li');
         let TaskContainer = document.querySelector('#myTaskList');
+        let newTask = document.createElement('li');
         newTask.innerHTML = task;
         newTask.className = '.to-do-item';
-
         TaskContainer.appendChild(newTask);
       };
 
       /* EXERCISE 6:
                 Create a method "removeLast" which removes the last item from the task list
             */
-
-      let removeLast = function () {
-        let lasTask = TaskContainer.removeChild(newTask);
+      const removeLast = function () {
+        let taskContain = document.querySelector('#myTaskList');
+        let taskr = document.querySelector('li');
+        taskContain.removeChild(taskr);
       };
-
       /* EXERCISE 7:
                 Create a method "removeFirst" which removes the first item from the task list
             */
