@@ -46,7 +46,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       }
 
       .to-dos {
-        background-color: grey;
+        background-color: #ee9a1b;
         border-radius: 10px;
       }
 
@@ -99,7 +99,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       class="button"
       type="button"
       value="Remove First Task"
-      onclick="removeFirst"
+      onclick="removeFirst()"
     />
 
     <ul class="to-dos" id="myTaskList">
@@ -116,18 +116,20 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       onclick="changeTaskBackgroundColor()"
     />
 
+    <input type="button" value="array" onclick="getTasksAsArray()" />
+
     <hr />
 
     <input class="button" type="button" value="Sort" onclick="bubblesort()" />
 
     <script>
       /* EXERCISE 5:
-                Add a new task to the list.
-                Suggestion:
-                - Use document.getElementById to get the UL item and the input text
-                - Use the document.createElement to create the new List Item
-                - Append the child to the UL
-            */
+                        Add a new task to the list.
+                        Suggestion:
+                        - Use document.getElementById to get the UL item and the input text
+                        - Use the document.createElement to create the new List Item
+                        - Append the child to the UL
+                    */
 
       const addNewTask = function () {
         let ul_ref = document.querySelector('#newTask');
@@ -140,42 +142,56 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       };
 
       /* EXERCISE 6:
-                Create a method "removeLast" which removes the last item from the task list
-            */
+                        Create a method "removeLast" which removes the last item from the task list
+                    */
       const removeLast = function () {
         let taskContain = document.querySelector('#myTaskList');
-        let taskr = document.querySelector('li');
+        let taskr = taskContain.lastChild;
         taskContain.removeChild(taskr);
       };
       /* EXERCISE 7:
-                Create a method "removeFirst" which removes the first item from the task list
-            */
+                        Create a method "removeFirst" which removes the first item from the task list
+                    */
 
       const removeFirst = function () {
-        let taskCon = document.querySelector('#myTaskList');
-        let taskr = document.querySelector('li');
-        taskCon.removeChild(taskCon.taskr[0]);
+        let taskCon = document.getElementById('myTaskList');
+        if (taskCon.hasChildNodes()) {
+          taskCon.removeChild(taskCon.firstChild);
+        }
       };
 
       /* EXERCISE 8:
-               Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
-            */
+                       Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
+                    */
+      let taskCon = document.querySelectorAll('#myTaskList');
+
+      const getTasksAsArray = function () {
+        for (i = 0; i <= taskCon.length; i++) {
+          console.log(Array.from(taskCon)[i]);
+        }
+      };
+
+      /*let arr = ['ciao', 'ciao', 'ciao', 'ciao', 'ciao'];
+
+      for (i = 0; i <= 5; i++) {
+        console.log(arr[i]);
+      }*/
 
       /* EXERCISE 9:
-               Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an
-               onchange event listener ad applies it as background to every list item
-            */
+                       Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an
+                       onchange event listener ad applies it as background to every list item
+                    */
 
       /* EXTRA */
 
       /* EXERCISE 10:
-               Create a method "bubbleSort()" which sort the task list alphabetically using the bubble sort algorithm
+                       Create a method "bubbleSort()" which sort the task list alphabetically using the bubble sort algorithm
 
-               Use your spare time to beautify your task list with CSS.
-               Suggestion:
-               - Break the code into many function for semplicity
-               - Reuse the functions previously created
-            */
+                       Use your spare time to beautify your task list with CSS.
+                       Suggestion:
+                       - Break the code into many function for semplicity
+                       - Reuse the functions previously created
+                    */
     </script>
   </body>
 </html>
