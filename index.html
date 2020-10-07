@@ -94,7 +94,13 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     <!-- EXERCISE 4
         Create a button "Remove First Task" to trigger the method "removeFirst"
         -->
-    <input id="remove" class="button" type="button" value="Remove First Task" />
+    <input
+      id="remove"
+      class="button"
+      type="button"
+      value="Remove First Task"
+      onclick="removeFirst"
+    />
 
     <ul class="to-dos" id="myTaskList">
       <li>ciao</li>
@@ -130,7 +136,6 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         let TaskContainer = document.querySelector('#myTaskList');
         let newTask = document.createElement('li');
         newTask.innerHTML = task;
-        newTask.className = '.to-do-item';
         TaskContainer.appendChild(newTask);
       };
 
@@ -145,6 +150,12 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       /* EXERCISE 7:
                 Create a method "removeFirst" which removes the first item from the task list
             */
+
+      const removeFirst = function () {
+        let taskCon = document.querySelector('#myTaskList');
+        let taskr = document.querySelector('li');
+        taskCon.removeChild(taskCon.taskr[0]);
+      };
 
       /* EXERCISE 8:
                Create a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
